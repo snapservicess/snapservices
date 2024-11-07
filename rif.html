@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapService - Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Search Bar Styling */
+        .search-container {
+            background-color: #007bff;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .search-container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 300px;
+            padding: 12px;
+            margin: 10px 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.8);
+        }
+
+        .search-container button {
+            background-color: #ff9900;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #ff7700;
+        }
+
+        /* Service suggestions (dropdown) */
+        .suggestions {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
+            z-index: 1;
+        }
+
+        .suggestions div {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestions div:hover {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <h2>Find a Service Near You</h2>
+        <input type="text" id="serviceInput" placeholder="What service are you looking for? (e.g., Plumbing, Electrical)">
+        <input type="text" placeholder="Enter your city or zip code">
+        <button onclick="searchService()">Search</button>
+
+        <!-- Suggestions for services -->
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <script>
+        // Array of predefined services for suggestions
+        const services = ['Plumbing', 'Electrical', 'Cleaning', 'Painting', 'Landscaping', 'Handyman', 'Carpentry'];
+
+        const serviceInput = document.getElementById('serviceInput');
+        const suggestionsBox = document.getElementById('suggestions');
+
+        // Event listener for input keyup
+        serviceInput.addEventListener('keyup', function () {
+            const query = this.value.toLowerCase();
+            suggestionsBox.innerHTML = '';  // Clear previous suggestions
+
+            // Show suggestions if input is not empty
+            if (query) {
+                const filteredServices = services.filter(service => service.toLowerCase().includes(query));
+                
+                // Create suggestions and append to the suggestions box
+                filteredServices.forEach(service => {
+                    const suggestion = document.createElement('div');
+                    suggestion.textContent = service;
+                    suggestion.onclick = function () {
+                        serviceInput.value = service;
+                        suggestionsBox.style.display = 'none';  // Hide suggestions when clicked
+                    };
+                    suggestionsBox.appendChild(suggestion);
+                });
+
+                suggestionsBox.style.display = filteredServices.length > 0 ? 'block' : 'none';
+            } else {
+                suggestionsBox.style.display = 'none';  // Hide suggestions if input is empty
+            }
+        });
+
+        // Function to handle the search button click
+        function searchService() {
+            const service = serviceInput.value;
+            const location = document.querySelector('input[placeholder="Enter your city or zip code"]').value;
+
+            if (service && location) {
+                alert(`Searching for ${service} in ${location}...`);
+                // Redirect or handle the search here
+            } else {
+                alert('Please enter both a service and location.');
+            }
+        }
+
+        // Hide suggestions if clicked outside of the search bar
+        document.addEventListener('click', function (e) {
+            if (!suggestionsBox.contains(e.target) && e.target !== serviceInput) {
+                suggestionsBox.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
