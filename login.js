@@ -1,9 +1,9 @@
 function validateForm() {
-    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
   
     // Check if the fields are empty
-    if (name.trim() === "" || email.trim() === "") {
+    if (email.trim() === "" || password.trim() === "") {
       alert("Please fill in all fields.");
       return false;
     }
