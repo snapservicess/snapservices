@@ -46,39 +46,40 @@ header nav a {
     transition: color 0.3s ease;
 }
 
-header nav a:hover {
-    color: #080808;
-    border: solid 2px black;
-    border-radius: 5px;
+header nav a:hover {   
+    border-bottom: solid 3px rgb(0, 187, 255);
+    border-top: solid 0px;
+    border-right: solid 0px;
+    border-left: solid 0px;
 }
 
 /* Hero Section */
 .hero {
     position: relative;
     background: url('hero-bg.jpg') no-repeat center center/cover;
-    padding: 0;
     text-align: center;
     color: white;
-    min-height: 100vh; /* Full viewport height */
+    min-height: calc(100vh - 60px); /* Adjust the hero section height to account for the fixed header */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -60px; /* Adjust for fixed header height */
     overflow: hidden;
-    margin-top: 60px; /* Adjust for fixed header height */
-    height: calc(100vh - 60px); /* Subtract the height of the header */
 }
 
-/* Carousel Container */
 .carousel-container {
     position: relative;
     width: 100%;
     max-width: 100%;
+    margin-top: -60px;
     margin: 0;
     overflow: hidden;
     border-radius: 0;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    display: flex;
 }
 
+/* Carousel Slide */
 .carousel-slide {
     display: flex;
     transition: transform 1s ease-in-out;
@@ -87,7 +88,7 @@ header nav a:hover {
 .carousel-slide img {
     width: 100%;
     object-fit: cover;
-    height: 100%; /* Ensure images take up the full height of the container */
+    height: 100%;
     border: none;
 }
 
@@ -121,40 +122,61 @@ header nav a:hover {
 .prev {
     left: 15px;
 }
-
-/* Hero Content (Title + Search Bar) */
+/* Hero Content */
 .hero-content {
     position: absolute;
     top: 50%;
     left: 50%;
+    margin-top: -65px;
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
     color: #fff;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(78, 77, 77, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content h1 {
     font-size: 40px;
-    font-weight: 700;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+}
+
+.hero-content .search-bar {
+    display: flex;
+    flex-direction: column;  /* Arrange input fields and button vertically */
+    align-items: flex-start;  /* Align all items to the left */
+    gap: 15px;
+    width: 700px;
+    margin-top: 20px;
+}
+
+.hero-content .search-bar input {
+    width: 50%;  /* Make input fields take up the full width */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.hero-content .search-bar input:focus {
+    border-color: #007bff;
 }
 
 .hero-content button {
+    align-self: flex-start;  /* Align button to the left */
     padding: 16px 32px;
     font-size: 18px;
+    margin-left: 70%;
+    margin-top: -12%;
     color: white;
     background-color: #ff9900;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content button:hover {
@@ -165,56 +187,176 @@ header nav a:hover {
 .hero-content button:active {
     transform: translateY(1px);
 }
-/* How It Works Section */
+
+ 
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .footer-links a {
+        margin: 5px 0;
+    }
+
+    .carousel-slide img {
+        height: 80vh; /* Adjust image height for smaller screens */
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content .search-bar {
+        flex-direction: column;
+    }
+
+    .hero-content .search-bar input,
+    .hero-content button {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* For smaller screens (mobile), make the input fields and button stack vertically */
+@media (max-width: 768px) {
+    .hero-content .search-bar {
+        flex-direction: column; /* Stack inputs and button vertically on smaller screens */
+    }
+
+    .hero-content .search-bar input,
+    .hero-content button {
+        width: 100%; /* Full width for input fields and button */
+    }
+}/* How It Works Section */
 .how-it-works {
     padding: 50px 20px;
     text-align: center;
-}
- 
-/* Add some padding or margin to the heading to ensure it is properly spaced */
-.how-it-works h2  {
-    margin-top: 20px; /* Space between the carousel and h2 */
-    font-size: 32px;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-align: center;
-}
-
-
-.steps {
-    display: flex; /* Aligns items in a row */
-    justify-content: space-around; /* Distributes the items evenly */
-    gap: 30px; /* Adds space between steps */
-    flex-wrap: wrap; /* Allows the items to wrap on smaller screens */
-    margin-top: 20px;
-}
-
-.step {
-    flex: 1; /* Makes the steps take equal space */
-    text-align: center;
-    min-width: 200px; /* Ensures each step has a minimum width */
-}
-
-.step img {
-    width: 50px; /* Fixed size for icons */
-    height: 50px; /* Fixed size for icons */
-    margin-bottom: 1px;
-    margin-top: -100px;
-}
-
-.step p {
-    font-size: 18px;
-    font-weight: 600;
+    background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.how-it-works .how-it-works-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.how-it-works .step {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    margin-left: -20%;;
+}
+
+.how-it-works .step-icon {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.how-it-works .company
+{
+    margin-left: -10%;
+    display: inline-block;
+}
+.how-it-works .details
+{
+    margin-left: 15%;
+    margin-bottom: -20%;
+    
+    display: inline-block;
+}
+.how-it-works .address
+{
+    margin-left: 20%;
+    display: inline-block;
+}
+.how-it-works .how-it-works-details {
+    text-align: center;
+    width: 100%;
+}
+
+.how-it-works h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.how-it-works .steps {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 40px;
+}
+
+.how-it-works .step-item {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.how-it-works .step-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.how-it-works .step-item p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #4e3853;
     margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .how-it-works .how-it-works-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .how-it-works h2 {
+        font-size: 24px;
+    }
+
+    .how-it-works .steps {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .how-it-works .step-item {
+        min-width: 200px;
+        max-width: 300px;
+    }
 }
 
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #969292;
     color: white;
     padding: 40px 20px;
     text-align: center;
@@ -234,7 +376,6 @@ footer .footer-content {
     justify-content: center;
 }
 
-/* Footer Links */
 footer .footer-links {
     display: flex;
     gap: 30px;
@@ -304,20 +445,22 @@ footer .copyright p {
         font-size: 36px;
     }
 
-    .search-bar {
+    .hero-content .search-bar {
         flex-direction: column;
     }
 
-    .search-bar input, .search-bar button {
-        width: 100%;
+    .hero-content .search-bar input,
+    .hero-content button {
+        width: 100%; /* Full width on smaller screens */
     }
 }
-.size
-{
-    height: 30px;
-    
+
+/* Adjustments for size class (if needed) */
+/* .size {
+    height: 40px;
+    width: 100px;
     display: flex;
-}
-.step
-{
-}
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+} */
