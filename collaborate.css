@@ -17,7 +17,7 @@ body {
 /* Style for the image */
 .image-container {
     flex: 1;
-    background-image: url('images/snap.webp'); /* Adjust with your correct image path */
+    background-image: url('snap.webp'); /* Adjust with your correct image path */
     background-size: cover;
     background-position: center;
     height: 100vh;
