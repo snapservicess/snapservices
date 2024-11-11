@@ -123,7 +123,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = ""; // Default password for XAMPP
-$dbname = "your_database_name";
+$dbname = "snapservices";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
