@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="collaborate.css">
     <!-- Link to External JavaScript File -->
     <script src="collaborate.js" defer></script>
+    <style>
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 100%;
+        }
+        #otpField {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="main-container">
@@ -19,22 +29,23 @@
                 <h1>Employee Collaboration Portal</h1>
             </header>
 
-            <form onsubmit="handlesubmit(event)">
+            <!-- Form to Submit Details -->
+            <!-- On first submit, it will go to generate.php to send OTP -->
+            <form action="generate.php" method="POST" id="registrationForm" onsubmit="handlesubmit(event)">
                 <!-- Name and Email Fields -->
-                <input type="text" name="name" placeholder="Enter your name" required /> <br><br>
-                <input type="email" name="email" placeholder="Enter your email id" required /><br/><br/>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name" required /> <br><br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email id" required /><br/><br/>
 
                 <!-- Phone Number Field -->
-                <input type="text" name="number" placeholder="Enter your phone number" required oninput="showOtpField()" maxlength="10" /> <br><br>
-
-                <!-- OTP Field (Initially Hidden) -->
-                <div id="otpField" style="display: none;">
-                    <input type="number" name="otp" placeholder="Enter your OTP" required /> <br><br>
-                </div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required oninput="showOtpField()" maxlength="10" pattern="[0-9]{10}" /> <br><br>
 
                 <!-- Service Selection -->
-                <b>What service are you going to provide?</b> <br><br>
-                <select name="service" required>
+                <label for="service">What service are you going to provide?</label><br><br>
+                <select name="service" id="service" required>
                     <option value="plumber">Plumber</option>
                     <option value="electrician">Electrician</option>
                     <option value="maid">Maid</option>
@@ -59,13 +70,23 @@
                 <input type="submit" value="Submit">
             </form>
 
+            <!-- OTP Field (Initially Hidden, shown after OTP is sent) -->
+            <div id="otpField">
+                <form action="Validate.php" method="POST">
+                    <input type="number" name="otp" placeholder="Enter your OTP" required /> <br><br>
+                    <input type="submit" value="Verify OTP">
+                </form>
+            </div>
+
             <div class="note">
                 <strong>NOTE:</strong>
-                <p>If you have problems with collaborating, please contact our team using the below link.</p>
+                <p>If you have problems with collaborating, please contact our team using the below link:</p>
                 <br><a href="contact.html" class="contact-link">Contact our team</a>
             </div>
         </div>
     </div>
+
+
+        
 </body>
 </html>
-
