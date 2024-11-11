@@ -7,6 +7,7 @@ function showOtpField() {
     if (phoneNumber.length === 10) {
         otpField.style.display = 'block'; // Show OTP field
         sendOtpToPhone(phoneNumber); // Send OTP to the phone number
+        fetch("validate.php" { method="post"})
     } else {
         otpField.style.display = 'none'; // Hide OTP field
     }
