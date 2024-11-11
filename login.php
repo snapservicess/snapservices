@@ -1,9 +1,12 @@
 <?php
-// Database connection settings
+// Start session to manage login sessions if needed
+session_start();
+
+// Database connection details
 $servername = "localhost";
 $username = "root";
-$password = ""; // Default for XAMPP
-$dbname = "your_database_name";
+$password = ""; // Default password for XAMPP
+$dbname = "snapservices";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,30 +16,36 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Sanitize and validate inputs
-    $name = trim($_POST["name"]);
-    $email = trim($_POST["email"]);
+// Get form data
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    // Server-side validation
-    if (empty($name) || empty($email)) {
-        die("Please fill in all fields.");
-    }
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Invalid email format.");
-    }
+// SQL query to find the user
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    // Prepare an SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
-    $stmt->bind_param("ss", $name, $email);
+// Check if a user with the entered email exists
+if ($result->num_rows === 1) {
+    $user = $result->fetch_assoc();
 
-    if ($stmt->execute()) {
-        echo "Registration successful!";
+    // Verify the password
+    if (password_verify($password, $user['password'])) {
+        // Password is correct
+        echo "Login successful! Welcome, " . htmlspecialchars($user['name']) . "!";
+        // You can set session variables here, e.g., $_SESSION['user_id'] = $user['id'];
     } else {
-        echo "Error: " . $stmt->error;
+        // Password is incorrect
+        echo "Invalid password. Please try again.";
     }
-
-    $stmt->close();
-    $conn->close();
+} else {
+    // No user found with that email
+    echo "No account found with that email.";
 }
+
+// Close connection
+$stmt->close();
+$conn->close();
 ?>
