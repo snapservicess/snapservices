@@ -1,8 +1,7 @@
 
 /* Global Styles */
 body {
-    background: linear-gradient(rgba(243, 235, 246, 0.7), rgba(243, 235, 246, 0.7)), 
-                url('   ') no-repeat center center fixed;
+    background-image: url("sanp.jpeg");
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
     animation: backgroundZoom 10s infinite alternate; /* Apply animation */
@@ -21,7 +20,7 @@ body {
 
 /* Main Container */
 .main {
-    background-color: #FFFFFF;
+    background-color: #886a6a;
     width: 400px;
     height: 400px;
     margin: 7em auto;
@@ -47,12 +46,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgba(196, 242, 245, 0.8); /* Soft background overlay */
+    background-color: rgba(119, 106, 87, 0.8); /* Soft background overlay */
 }
 
 /* Sign-Up Box */
 .signup-box {
-    background-color: #c0bde7;
+    background-color: #a19bee;
     width: 400px;
     padding: 40px;
     border-radius: 1.5em;
