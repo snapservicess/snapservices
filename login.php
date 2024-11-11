@@ -1,5 +1,6 @@
+ 
 <?php
-// Start session to manage login sessions if needed
+ // Start session to manage login sessions if needed
 session_start();
 
 // Database connection details
@@ -16,36 +17,40 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form data
-$email = $_POST['email'];
-$password = $_POST['password'];
+// Check if email and password fields are set in POST
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // SQL query to find the user
+    $sql = "SELECT email, password FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
 
-// SQL query to find the user
-$sql = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Ensure the statement is prepared successfully
+    if (!$stmt) {
+        die("Statement preparation failed: " . $conn->error);
+    }
 
-// Check if a user with the entered email exists
-if ($result->num_rows === 1) {
-    $user = $result->fetch_assoc();
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    // Verify the password
-    if (password_verify($password, $user['password'])) {
-        // Password is correct
-        echo "Login successful! Welcome, " . htmlspecialchars($user['name']) . "!";
-        // You can set session variables here, e.g., $_SESSION['user_id'] = $user['id'];
+    // Check if a user with the entered email exists
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Verify the password
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful. Welcome, " . $row['email'];
+        } else {
+            echo "Invalid password.";
+        }
     } else {
-        // Password is incorrect
-        echo "Invalid password. Please try again.";
+        echo "No user found with this email.";
     }
 } else {
-    // No user found with that email
-    echo "No account found with that email.";
+    echo "Email or password is missing.";
 }
 
-// Close connection
-$stmt->close();
 $conn->close();
 ?>
