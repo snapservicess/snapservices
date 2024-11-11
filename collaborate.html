@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Collaboration Portal</title>
+    <link rel="stylesheet" href="collaborate.css">
+    <!-- Link to External JavaScript File -->
+    <script src="collaborate.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Image Section -->
+        <div class="image-container"></div>
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <header>
+                <h1>Employee Collaboration Portal</h1>
+            </header>
+
+            <form onsubmit="handlesubmit(event)">
+                <!-- Name and Email Fields -->
+                <input type="text" name="name" placeholder="Enter your name" required /> <br><br>
+                <input type="email" name="email" placeholder="Enter your email id" required /><br/><br/>
+
+                <!-- Phone Number Field -->
+                <input type="text" name="number" placeholder="Enter your phone number" required oninput="showOtpField()" maxlength="10" /> <br><br>
+
+                <!-- OTP Field (Initially Hidden) -->
+                <div id="otpField" style="display: none;">
+                    <input type="number" name="otp" placeholder="Enter your OTP" required /> <br><br>
+                </div>
+
+                <!-- Service Selection -->
+                <b>What service are you going to provide?</b> <br><br>
+                <select name="service" required>
+                    <option value="plumber">Plumber</option>
+                    <option value="electrician">Electrician</option>
+                    <option value="maid">Maid</option>
+                    <option value="nurse">Nurse</option>
+                    <option value="care_taker">Care Taker</option>
+                    <option value="ac_repair">AC Repair</option>
+                    <option value="carpenter">Carpenter</option>
+                    <option value="cook">Cook</option>
+                    <option value="painter">Painter</option>
+                    <option value="construction_worker">Construction Worker</option>
+                    <option value="daily_wage_worker">Daily Wage Worker</option>
+                    <option value="driver">Driver</option>
+                    <option value="packers_and_movers">Packers and Movers</option>
+                    <option value="room_rents">Room Rents</option>
+                    <option value="internet_connection">Internet Connection</option>
+                    <option value="home_builder">Home Builder</option>
+                    <option value="teacher">Mobile Services</option>
+                    <option value="make_up_artist">Make Up Artist</option>
+                </select> <br><br>
+
+                <!-- Submit Button -->
+                <input type="submit" value="Submit">
+            </form>
+
+            <div class="note">
+                <strong>NOTE:</strong>
+                <p>If you have problems with collaborating, please contact our team using the below link.</p>
+                <br><a href="contact.html" class="contact-link">Contact our team</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
