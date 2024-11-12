@@ -89,8 +89,25 @@ body {
     padding: 10px 20px;
     border-radius: 20px;
     border: 2px solid rgb(143, 57, 143);;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+/* Forgot Password Button */
+.login-box1 button {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px; 
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid rgb(143, 57, 143);;
     margin-bottom: 27px;
-    margin-top: 46px;
+    margin-top: 10px;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     transition: transform 0.3s ease;
@@ -101,6 +118,10 @@ body {
 .login-box button:hover {
     color: white;
     background-color: rgb(95, 11, 95);
+}
+.login-box1 button:hover{
+    color: rgba(143, 207, 15, 0.795);
+    background: transparent;
 }
 
 /* Additional Text */
@@ -116,7 +137,8 @@ body {
 
 /* Link Hover State */
 .login-box a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #ebeb94;
 }
 
 /* Responsive */
