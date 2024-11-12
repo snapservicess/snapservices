@@ -20,3 +20,6 @@ setInterval(() => {
 
 // Initial display
 showSlide(slideIndex);
+
+
+
