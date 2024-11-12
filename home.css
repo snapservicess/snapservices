@@ -267,11 +267,41 @@ header nav a:hover {
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 10px;
+<<<<<<< Updated upstream
     margin-left: 140px;
+=======
+    margin-left: 150px;
+>>>>>>> Stashed changes
 }
+
+.moving-content {
+    position: absolute; /* Or relative, depending on how you want it positioned */
+    animation: moveSideToSide 5s linear infinite; /* Apply animation */
+    font-size: 24px;
+    padding: 10px;
+    background-color: #ff9900;
+    color: white;
+}
+
+@keyframes moveSideToSide {
+    0% {
+        left: -100%;  /* Start off-screen on the left */
+    }
+    50% {
+        left: 50%;    /* Move to the middle of the page */
+    }
+    100% {
+        left: 100%;   /* Move off-screen on the right */
+    }
+}
+
 .SnapService-2025
 {
+<<<<<<< Updated upstream
     margin-left: 140px;
+=======
+    margin-left: 150px;
+>>>>>>> Stashed changes
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 1px;
 }
