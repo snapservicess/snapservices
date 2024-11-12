@@ -112,5 +112,23 @@
             <h3>Mobile Services</h3>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            // Handle click on service cards
+            $('.service-card').on('click', function() {
+                const serviceType = $(this).data('service');
+                
+                $.ajax({
+                    url: 'fetch_providers.php',
+                    type: 'POST',
+                    data: { service_type: serviceType },
+                    success: function(response) {
+                        $('#provider-list').html(response);
+                    }
+                });
+            });
+        </script>
+    
+
 </body>
 </html>
