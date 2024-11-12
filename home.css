@@ -237,7 +237,7 @@ header nav a:hover {
 .how-it-works {
     padding: 50px 20px;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #a5a1a1;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -262,16 +262,22 @@ header nav a:hover {
 }
 
 .how-it-works .step-icon {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-left: 50px;
 }
-
+.SnapService-2025
+{
+    margin-left: 50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 1px;
+}
 .how-it-works .company
 {
-    margin-left: -10%;
+    margin-left: -0%;
     display: inline-block;
 }
 .how-it-works .details
@@ -323,37 +329,113 @@ header nav a:hover {
     margin-bottom: 20px;
 }
 
-.how-it-works .step-item p {
-    font-size: 18px;
-    font-weight: 500;
-    color: #4e3853;
-    margin-top: 10px;
+/* Step Container */
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap:0px;
+    padding: 40px 20px;
+    margin-top: -10%;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .how-it-works .how-it-works-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
+/* Step Item Styling */
+.step-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .how-it-works h2 {
-        font-size: 24px;
-    }
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 
+/* How It Works Step Section */
+.how-it-works .steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap between step items */
+    margin-top: -100px;
+    padding: 0 20px; /* Added padding to prevent touching edges */
+    width: 100%;
+    max-width: 1100px;
+}
+/* }
+.step
+{
+    margin-left: -20%;
+} */
+
+/* Step Item Styling */
+.step-item {
+    background-color: #ffffff;
+    padding: 10px; /* Added more padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px; /* Fixed width for step items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Title Link Styling */
+.step-item a {
+    display: block;
+    font-size: 20px; /* Adjusted font size for better readability */
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.step-item a:hover {
+    color: #0056b3;
+    border-bottom: solid 2px rgb(0, 140, 255);
+}
+
+/* Step Text Styling */
+.step-item p {
+    font-size: 14px; /* Smaller text for descriptions */
+    color: #333333;
+    line-height: 1.5;
+    margin: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Step Container Responsiveness */
+@media (max-width: 700px) {
     .how-it-works .steps {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: column; /* Stack the items vertically */
+        align-items: center;
+        gap: 20px; /* Space between items */
     }
 
-    .how-it-works .step-item {
-        min-width: 200px;
-        max-width: 300px;
+    .step-item {
+        width: 70%; /* Take up more space on smaller screens */
+        max-width: 30px; /* Limit the max-width for readability */
+    }
+
+    .step-item a {
+        font-size: 18px; /* Slightly smaller text for mobile */
+    }
+
+    .step-item p {
+        font-size: 14px; /* Ensure text is readable on smaller screens */
     }
 }
-
-
 /* Footer */
 footer {
     background-color: #969292;
