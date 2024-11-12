@@ -105,9 +105,9 @@ body {
     letter-spacing: 1px; 
     padding: 10px 20px;
     border-radius: 20px;
-    border: 1px solid rgb(143, 57, 143);;
-    margin-bottom: 27px;
-    margin-top: 10px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 15px;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     transition: transform 0.3s ease;
