@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Booked Services</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Booked Services</h1>
+        <div class="services-list">
+            <h2>Booked Services</h2>
+            <ul id="servicesList">
+                <!-- Services will be displayed here dynamically -->
+            </ul>
+        </div>
+        <div class="add-service">
+            <h3>Add New Service</h3>
+            <form id="serviceForm">
+                <label for="serviceName">Service Name:</label>
+                <input type="text" id="serviceName" placeholder="Enter Service Name" required>
+                <button type="submit">Add Service</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="booking.js"></script>
+</body>
+</html>
