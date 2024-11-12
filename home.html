@@ -13,9 +13,65 @@
     <section class="search-bar">
         <input type="text" placeholder="Service you are looking for?">
         <input type="text" placeholder="Enter your city and zip code">
-        <button onclick="window.location.href='service.html'">Search</button>
+        <button onclick="window.location.href='details.html'">Search</button>
     </section>
 </div>
+              <!-- Title and Search Bar Over Image -->
+              <div class="hero-content">
+                <h1>Find Trusted Professionals for Any Job in Seconds!</h1>
+                <section class="search-bar">
+                  <input type="text"list="dropdown"  id="service-input" placeholder="what service you are looking for?">
+                  <datalist id="dropdown">
+                     <option>Plumber</option>
+                         <option>Electrician</option>
+                 <option>Maid</option>
+                     <option >Nurse</option>
+                         <option>care taker</option>
+                             <option>Ac repair</option>
+                                 <option>Carpenter</option>
+                                     <option>Cook</option>
+                                     <option>Painter</option>
+                                     <option>Construction worker</option>
+                                     <option>Daily wage worker</option>
+                                     <option>Driver</option>
+                                     <option>Packers-and-movers</option>
+                                     <option>Room Renters</option>
+                                     <option>Internet Connection</option>
+                                     <option>Home builders</option>
+                                     <option>Financial services</option>
+                                     <option>Mobile sevices</option>
+                  </datalist> 
+                 <input type="text" id="location-input" list="pincodes"placeholder="Enter your city or zip code">
+                 <datalist id="pincodes" >
+                     <option>Guntur Pin Code-522002</option>
+                     <option>Narasaraopet Pin Code-522601</option>
+                     <option>Vijayawada Pin Code-502355</option>
+                     <option>Piduguralla Pin Code-522413</option>
+                     <option>Gudivada Pin Code-521301</option>
+                     <option>Addanki Pin Code-523201</option>
+                     <option>Vuyyuru Pin Code-521165</option>
+                     <option>Sattenpalli Pin Code-522403</option>
+                     <option>Macherla Pin Code-4522020</option>
+                     <option>Parchur Pin Code-523169</option>
+                     <option>Bapatla Pin Code-522101</option>
+                     <option>chirala Pin Code-522102</option>
+                     <option>Machavaram Pin Code-522615</option>
+                     <option>Achampeta Pin Code-509375</option>
+                     <option>Machilipatnam Pin Code-521001</option>
+                     <option>Bhimavaram Pin Code-534201</option>
+                     <option>Dharmavaram Bazar Pin Code-515671</option>
+                     <option>Tadepalli Pin Code-522504</option>
+                     <option>Eluru Pin Code-534001</option>
+                     <option>Nuzivid Pin Code-521201</option>          
+                 </datalist>
+                 <button onclick="searchServices()">Search</button>
+               </section>
+           
+               <!-- Results Section -->
+               <section id="results"></section>
+               <script src="home1.js"></script>
+                </section>
+            </div>
 
     <!-- Header -->
     <header>

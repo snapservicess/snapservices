@@ -344,6 +344,7 @@
     </div>
 
 
+
     
     <script>
         // Function to display only the selected section based on the URL hash
@@ -368,6 +369,21 @@
         
         // Run the function again if the hash changes (e.g., user navigates within the same page)
         window.onhashchange = showSelectedSection;
+    </script>
+    <script>
+        function getSearchQuery(){
+            const urlParams=newURLSearchParams(window.location.search);
+            return urlParams.get('q');
+        }
+        const searchQuery=getSearchQuery();
+        const resultText = document.getElementById('service-input');
+        if(searchQuery){
+            resultText.textContent='Results for: "${searchQuery}"';
+
+        }
+        else{
+            resultText.textContent="no search term provided";
+        }
     </script>
 
 
