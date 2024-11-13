@@ -7,18 +7,6 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-            <!-- Title and Search Bar Over Image -->
-          <div class="hero-content">
-    <h1>Find Trusted Professionals for Any Job in Seconds!...</h1>
-    <section class="search-bar">
-        <input type="text" placeholder="Service you are looking for?">
-        <input type="text" placeholder="Enter your city and zip code">
-<<<<<<< HEAD
-        <button onclick="window.location.href='services.html'">Search</button>
-=======
-        <button onclick="window.location.href='details.html'">Search</button>
->>>>>>> f9d4832d1234e6222e23887707d18b0cc736babc
-    </section>
 </div>
               <!-- Title and Search Bar Over Image -->
               <div class="hero-content">
@@ -145,6 +133,7 @@
     </section>
     
 
+   <!-- Footer -->
    <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -171,7 +160,7 @@
         function showSlide(index) {
             const slideWidth = slides[0].clientWidth;
             const newTransformValue = -index * slideWidth;
-            document.querySelector('.carousel-slide').style.transform = `translateX(${newTransformValue}px)`;
+            document.querySelector('.carousel-slide').style.transform = translateX(${newTransformValue}px);
         }
 
         function moveSlide(step) {
@@ -179,10 +168,12 @@
             showSlide(slideIndex);
         }
 
+        // Auto slide every 5 seconds
         setInterval(() => {
             moveSlide(1);
         }, 2000);
 
+        // Initial display
         showSlide(slideIndex);
     </script>
 
