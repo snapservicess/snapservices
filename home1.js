@@ -123,7 +123,7 @@ function searchServices() {
   resultsContainer.innerHTML ="<h2>Search Results:</h2>";
    const searchQuery= document.getElementById('service-input').value;
    if(searchQuery){
-    window.location.href='details.html?q=${encodeURIComponent(searchQuery)}';
+    window.location.href='services.html';
    }
    else {
     resultsContainer.innerHTML +=" <p>No results found for the given search criteria.</p>";
