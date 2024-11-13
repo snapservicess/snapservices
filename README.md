@@ -76,18 +76,12 @@ php
 Copy code
 <?php
 session_start();
-require 'vendor/autoload.php'; // Include the Twilio SDK
+require 'vendor/autoload.php'; // Include the Twilio SDK if using Twilio
 use Twilio\Rest\Client;
-use Dotenv\Dotenv;
 
-// Load environment variables
-$dotenv = Dotenv::createImmutable(_DIR_);
-$dotenv->load();
-
-// Retrieve credentials from .env
-$sid = $_ENV['TWILIO_SID'];
-$token = $_ENV['TWILIO_TOKEN'];
-$twilio_number = $_ENV['TWILIO_NUMBER'];
+$sid = 'your_account_sid';
+$token = 'your_auth_token';
+$twilio_number = 'your_twilio_number';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $phone = $_POST["phone"];
@@ -155,4 +149,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $conn->close();
 }
-?>
+?
