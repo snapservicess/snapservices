@@ -160,7 +160,7 @@
         function showSlide(index) {
             const slideWidth = slides[0].clientWidth;
             const newTransformValue = -index * slideWidth;
-            document.querySelector('.carousel-slide').style.transform = translateX(${newTransformValue}px);
+            document.querySelector('.carousel-slide').style.transform = translateX($,{newTransformValue},px);
         }
 
         function moveSlide(step) {
